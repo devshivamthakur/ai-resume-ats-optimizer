@@ -31,11 +31,35 @@ Resume Optimization Tasks:
 4. Remove irrelevant or weak content
 5. Maintain ATS-friendly formatting and natural keyword usage
 
-ATS Keyword Analysis Tasks:
-1. Extract important keywords from the job description
-2. Identify which are present or implied in the resume
-3. Identify which are missing
-4. Calculate an ATS keyword match score
+ATS Keyword Extraction Rules:
+- Extract keywords ONLY from the job description
+- Do NOT invent or infer keywords from the resume
+- Ignore greetings, filler words, and generic terms
+- Ignore words shorter than 3 characters
+- Only include:
+  - Skills
+  - Tools
+  - Technologies
+  - Frameworks
+  - Methodologies
+  - Role-specific responsibilities
+- Keywords may be single words or short phrases (2–4 words)
+- Each keyword must be meaningful in a professional resume
+
+ATS Keyword Tasks:
+1. Extract a list of important ATS keywords from the job description
+2. Compare each keyword against the resume
+3. Classify keywords as:
+   - present_keywords → explicitly mentioned or clearly implied
+   - missing_keywords → not present or weakly represented
+4. Calculate ATS match score:
+   (len(present_keywords) / len(jd_keywords)) * 100
+
+IMPORTANT:
+- present_keywords MUST be a subset of jd_keywords
+- missing_keywords MUST be jd_keywords minus present_keywords
+- Do NOT include any keyword not found in the job description
+
 
 Output Requirements:
 - Return ONLY valid JSON

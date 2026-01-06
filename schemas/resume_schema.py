@@ -1,21 +1,16 @@
-from pydantic import BaseModel, Field
+from pydantic import BaseModel
 from typing import List
+
+class ATSKeywords(BaseModel):
+    jd_keywords: List[str]          # extracted ONLY from JD
+    present_keywords: List[str]     # subset of jd_keywords
+    missing_keywords: List[str]     # jd_keywords - present_keywords
+    match_score: int
 
 class Experience(BaseModel):
     title: str
     company: str
     bullets: List[str]
-
-class ATSKeywords(BaseModel):
-    jd_keywords: List[str] = Field(
-        description="Important keywords and phrases extracted from the job description"
-    )
-    present_keywords: List[str] = Field(
-        description="Keywords from the job description that appear in or are clearly implied by the resume"
-    )
-    missing_keywords: List[str] = Field(
-        description="Important job description keywords missing from the resume"
-    )
 
 class ResumeSchema(BaseModel):
     summary: str
