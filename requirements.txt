@@ -1,0 +1,10 @@
+streamlit
+langchain
+langchain-community
+langchain_huggingface
+transformers
+torch
+pdfplumber
+jinja2
+pydantic
+python-dotenv
