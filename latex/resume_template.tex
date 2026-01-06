@@ -24,6 +24,16 @@
 \end{itemize}
 {% endfor %}
 
+\section*{Projects}
+{% for proj in projects %}
+\textbf{ {{ proj.name }} }
+\begin{itemize}
+{% for b in proj.bullets %}
+  \item {{ b }}
+{% endfor %}
+\end{itemize}
+{% endfor %}
+
 \section*{Education}
 \begin{itemize}
 {% for edu in education %}

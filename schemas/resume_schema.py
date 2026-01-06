@@ -12,9 +12,15 @@ class Experience(BaseModel):
     company: str
     bullets: List[str]
 
+class Project(BaseModel):
+    name: str
+    bullets: List[str]
+
 class ResumeSchema(BaseModel):
     summary: str
     skills: List[str]
     experience: List[Experience]
     education: List[str]
+    projects: List[Project]
     ats_keywords: ATSKeywords
+
